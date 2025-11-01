@@ -1,4 +1,5 @@
 using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
 {
@@ -12,6 +13,8 @@ class Program
         int userNumber = PromptUserNumber();
 
         int squaredNumber = SquaredNumber(userNumber);
+
+        DisplayResult(userName, squaredNumber);
 
         static void DisplayWelcome()
         {
@@ -29,8 +32,8 @@ class Program
         static int PromptUserNumber()
         {
             Console.Write("Please enter your favorite number: ");
-            int answer = Console.ReadLine();
-            number = int.Parse(answer);
+            string answer = Console.ReadLine();
+            int number = int.Parse(answer);
             return number;
         }
 
@@ -38,6 +41,11 @@ class Program
         {
             int square = number * number;
             return square;
+        }
+
+        static void DisplayResult(string name, int square)
+        {
+        Console.WriteLine($"{name}, the square of your number is {square}");
         }
     }
 }
